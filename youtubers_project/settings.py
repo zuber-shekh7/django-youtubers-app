@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     # local
     'core.apps.CoreConfig',
     'sliders.apps.SlidersConfig',
+    'teams.apps.TeamsConfig',
 ]
 
 MIDDLEWARE = [
