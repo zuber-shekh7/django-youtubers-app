@@ -22,10 +22,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # 3rd party
+    'ckeditor',
+
     # local
     'core.apps.CoreConfig',
     'sliders.apps.SlidersConfig',
     'teams.apps.TeamsConfig',
+    'youtubers.apps.YoutubersConfig',
 ]
 
 MIDDLEWARE = [
