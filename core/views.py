@@ -9,3 +9,7 @@ def index(request):
         'sliders': sliders,
     }
     return render(request, 'core/index.html', context)
+
+
+def about(request):
+    return render(request, 'core/about.html')
