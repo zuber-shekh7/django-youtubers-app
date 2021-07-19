@@ -16,7 +16,9 @@
     <!-- HEADER -->
     <header>{% include 'partials/navbar.html' %}</header>
     <!-- MAIN -->
-    <main>{% block main %} {% endblock main %}</main>
+    <main class="vh-100">{% block main %} {% endblock main %}</main>
+    <!-- FOOTER -->
+    {% include 'partials/footer.html' %}
     <!-- SCRIPTS -->
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
