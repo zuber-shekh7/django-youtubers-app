@@ -6,4 +6,5 @@ app_name = 'youtubers'
 
 urlpatterns = [
     path('', views.list_youtubers, name='list-youtubers'),
+    path('<int:pk>/', views.detail_youtuber, name='detail-youtuber'),
 ]

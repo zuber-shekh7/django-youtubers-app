@@ -1,0 +1,39 @@
+{% extends 'core/base.html' %} {% block main %}
+<section class="container mt-4">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-uppercase">{{youtuber.name}}</h1>
+      <hr />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <h2>{{youtuber.category}}</h2>
+    </div>
+    <div class="col-md-4">
+      <h2>$ {{youtuber.price}}</h2>
+    </div>
+    <div class="col-md-4">
+      <img class="img-thumbnail" src="{{youtuber.photo.url}}" alt="" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/{{youtuber.video_url}}"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <p class="lead">{{youtuber.description | safe}}</p>
+    </div>
+  </div>
+</section>
+{% endblock main %}

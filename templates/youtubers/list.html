@@ -8,11 +8,12 @@
     {% for youtuber in youtubers %}
     <div class="col-md-4">
       <div class="card">
-        <img
-          class="card-img-top"
-          src="{{youtuber.photo.url}}"
-          alt="{{youtuber.name}}"
-        />
+        <a href="{% url 'youtubers:detail-youtuber' pk=youtuber.id %}"
+          ><img
+            class="card-img-top"
+            src="{{youtuber.photo.url}}"
+            alt="{{youtuber.name}}"
+        /></a>
         <div class="card-body text-center">
           <h2 class="card-title text-uppercase">{{youtuber.name}}</h2>
         </div>
