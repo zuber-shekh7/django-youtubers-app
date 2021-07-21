@@ -23,6 +23,7 @@ urlpatterns = [
     path('', include('core.urls')),
     path('teams/', include('teams.urls')),
     path('youtubers/', include('youtubers.urls')),
+    path('accounts/', include('accounts.urls')),
 ]
 
 
