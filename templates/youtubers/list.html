@@ -1,25 +1,103 @@
-{% extends 'core/base.html' %} {% block main %}
-<section class="container mt-4">
-  <div class="row">
-    <div class="col-md-12">
-      <h1 class="text-uppercase">Youtubers</h1>
-      <hr />
-    </div>
-    {% for youtuber in youtubers %}
-    <div class="col-md-4">
-      <div class="card">
-        <a href="{% url 'youtubers:detail-youtuber' pk=youtuber.id %}"
-          ><img
-            class="card-img-top"
-            src="{{youtuber.photo.url}}"
-            alt="{{youtuber.name}}"
-        /></a>
-        <div class="card-body text-center">
-          <h2 class="card-title text-uppercase">{{youtuber.name}}</h2>
+{% extends 'core/base.html' %} {% load static %} {% block main%}
+
+<main class="tubers-page">
+  <div class="banner">
+    <img
+      src="{% static 'assets/images/bg-banner.png' %}"
+      alt=""
+      class="img-fluid w-100"
+    />
+    <h1 class="text-center">Youtubers</h1>
+  </div>
+
+  <section class="container mt-5 mb-5">
+    <div class="row">
+      <div class="col-lg-8 mb-2">
+        <section class="tubers">
+          {% for youtuber in youtubers %}
+          <div class="card border-0 text-center">
+            <div class="feature-text">
+              <a href="{% url 'youtubers:detail-youtuber' youtuber.id %}">
+                <img
+                  src="{{youtuber.photo.url}}"
+                  class="card-img-top"
+                  alt="team-member"
+                />
+              </a>
+            </div>
+            <div class="card-body text-capitalize">
+              <h5 class="text-uppercase card-title">{{youtuber.name}}</h5>
+              <p class="card-text">{{youtuber.category}}</p>
+              <div class="person-description mt-2">
+                <button class="btn btn-accent">{{youtuber.city}}</button>
+                <button class="btn btn-accent">{{youtuber.age}}</button>
+                <button class="btn btn-accent">{{youtuber.height}}</button>
+              </div>
+              <div class="person-description mt-2">
+                <button class="btn btn-accent">{{youtuber.crew}}</button>
+                <button class="btn btn-accent">{{youtuber.camera_type}}</button>
+                <button class="btn btn-accent">{{youtuber.subcribers}}</button>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </section>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="card">
+          <div class="card-body">
+            <p class="text-left text-center font-weight-bolder text-black-50">
+              Search Youtubers
+            </p>
+            <form>
+              <div class="form-group">
+                <select id="inputState" class="form-control">
+                  <option selected disabled hidden>City</option>
+                  <option>...</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <select id="inputState" class="form-control">
+                  <option selected disabled hidden>Camera Type</option>
+                  <option>Value 1</option>
+                  <option>Value 2</option>
+                  <option>Value 3</option>
+                  <option>Value 4</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <select class="form-control">
+                  <option selected disabled hidden>Category</option>
+                  <option>...</option>
+                </select>
+              </div>
+            </form>
+
+            <button class="btn btn-accent btn-block">Search</button>
+          </div>
         </div>
       </div>
     </div>
-    {% endfor %}
+  </section>
+
+  <div class="container section pagination-section mt-3">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1" aria-disabled="true"
+            >Previous</a
+          >
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">Next</a>
+        </li>
+      </ul>
+    </nav>
   </div>
-</section>
+</main>
+
 {% endblock main %}
