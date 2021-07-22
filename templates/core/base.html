@@ -49,7 +49,12 @@
     <!-- NAVBAR -->
     {% include 'partials/navbar.html' %}
     <!-- MAIN -->
-    <main class="min-vh-100">{% block main %} {% endblock main %}</main>
+    <main class="min-vh-100">
+      <section class="container mt-4">
+        {% include 'partials/messages.html' %}
+      </section>
+      {% block main %} {% endblock main%}
+    </main>
     <!-- FOOTER -->
     {% include 'partials/footer.html' %}
     <!-- SCRIPTS -->
