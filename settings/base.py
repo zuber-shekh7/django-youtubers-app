@@ -24,6 +24,7 @@ INSTALLED_APPS = [
 
     # 3rd party
     'ckeditor',
+    'crispy_forms',
 
     # local
     'accounts.apps.AccountsConfig',
@@ -127,3 +128,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # login url
 LOGIN_URL = 'accounts:signin'
+
+# crisy template
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
