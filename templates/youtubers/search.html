@@ -1,0 +1,42 @@
+{% extends 'core/base.html' %} {% block main %}
+<section class="container">
+    <div class="row">
+        <div class="col">
+            <section class="container mt-5 mb-5">
+                <h1 class="text-center">Search Results</h1>
+                <div class="row">
+                  <div class="col-lg-8 mb-2">
+                    <section class="tubers">
+                      {% for youtuber in youtubers %}
+                      <div class="card border-0 text-center">
+                        <div class="feature-text">
+                          <a href="{% url 'youtubers:detail-youtuber' youtuber.id %}">
+                            <img
+                              src="{{youtuber.photo.url}}"
+                              class="card-img-top"
+                              alt="team-member"
+                            />
+                          </a>
+                        </div>
+                        <div class="card-body text-capitalize">
+                          <h5 class="text-uppercase card-title">{{youtuber.name}}</h5>
+                          <p class="card-text">{{youtuber.category}}</p>
+                          <div class="person-description mt-2">
+                            <button class="btn btn-accent">{{youtuber.city}}</button>
+                            <button class="btn btn-accent">{{youtuber.age}}</button>
+                            <button class="btn btn-accent">{{youtuber.height}}</button>
+                          </div>
+                          <div class="person-description mt-2">
+                            <button class="btn btn-accent">{{youtuber.crew}}</button>
+                            <button class="btn btn-accent">{{youtuber.camera_type}}</button>
+                            <button class="btn btn-accent">{{youtuber.subcribers}}</button>
+                          </div>
+                        </div>
+                      </div>
+                      {% endfor %}
+                    </section>
+                  </div>
+        </div>
+    </div>
+</section>
+{% endblock main%}

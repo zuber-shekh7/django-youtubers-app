@@ -17,3 +17,14 @@ def detail_youtuber(request, pk):
         'youtuber': youtuber,
     }
     return render(request, 'youtubers/detail.html', context)
+
+
+def search(request):
+    youtubers = Youtuber.objects.all()
+    if 'keyword' in request.GET:
+        keyword = request.GET.get('keyword')
+        youtubers = youtubers.filter(description__icontains=keyword)
+    context = {
+        'youtubers': youtubers,
+    }
+    return render(request, 'youtubers/search.html', context)

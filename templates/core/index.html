@@ -1,3 +1,37 @@
 {% extends 'core/base.html' %} {% block main %}
-<section>{% include 'partials/carousel.html' with sliders=sliders%}</section>
+<section>
+  <div class="row">
+    <div class="col">
+      {% include 'partials/carousel.html' with sliders=sliders%}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <section
+        class="container d-flex justify-content-center align-items-center mt-4"
+      >
+        <form
+          method="GET"
+          action="{% url 'youtubers:search' %}"
+          class="row text-center"
+        >
+          <div class="col-md-auto">
+            <div class="form-group mb-2">
+              <input
+                name="keyword"
+                class="form-control"
+                placeholder="Enter Keywords"
+              />
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-accent ml-2 mb-2 pl-5 pr-5">
+                Search
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </div>
+  </div>
+</section>
 {% endblock main %}
